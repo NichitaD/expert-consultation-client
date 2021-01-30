@@ -17,9 +17,6 @@ export class CommentsApiService {
     return this.http.post<IComment>(this.documentCommentUrl(nodeId), {text});
   }
 
-  public listReplies(nodeId: string, commentId: string): Observable<Page<IComment>> {
-    return this.http.get<Page<IComment>>(this.repliesUrl(nodeId, commentId));
-  }
 
   public saveReply(nodeId: string, commentId: string, text: string): Observable<IComment> {
     return this.http.post<IComment>(this.repliesUrl(nodeId, commentId), {text});

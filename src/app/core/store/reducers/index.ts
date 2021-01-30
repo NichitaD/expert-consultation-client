@@ -16,7 +16,6 @@ export interface CoreState {
   importUsers: fromImportUsers.ImportUserState;
   documentsMetadata: fromDocuments.DocumentsState;
   comments: fromComments.CommentsState;
-  replies: fromComments.CommentsState;
 }
 
 export const reducers: ActionReducerMap<CoreState> = {
@@ -25,7 +24,6 @@ export const reducers: ActionReducerMap<CoreState> = {
   fileUpload: fromFileUpload.reducer,
   importUsers: fromImportUsers.reducer,
   comments: fromComments.reducer,
-  replies: fromReplies.reducer,
 };
 
 export const getCoreState = createFeatureSelector<CoreState>('core');

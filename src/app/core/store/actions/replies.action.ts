@@ -2,33 +2,9 @@ import { Action } from '@ngrx/store';
 import { Comment, Page } from '../../models';
 
 export enum RepliesActionTypes {
-  LoadReplies = '[Replies] Load Replies',
-  LoadRepliesSuccess = '[Replies] Load Replies Success',
-  LoadRepliesFail = '[Replies] Load Replies Fail',
   AddReply = '[Replies] Add Reply',
   AddReplySuccess = '[Replies] Add Reply Success',
   AddReplyFail = '[Replies] Add Reply Fail',
-}
-
-export class LoadReplies implements Action {
-  readonly type = RepliesActionTypes.LoadReplies;
-
-  constructor(public nodeId: string, public commentId: string) {
-  }
-}
-
-export class LoadRepliesSuccess implements Action {
-  readonly type = RepliesActionTypes.LoadRepliesSuccess;
-
-  constructor(public nodeId: string, public commentId: string, public commentsPage: Page<Comment>) {
-  }
-}
-
-export class LoadRepliesFail implements Action {
-  readonly type = RepliesActionTypes.LoadRepliesFail;
-
-  constructor(public nodeId: string, public commentId: string, public error: any) {
-  }
 }
 
 export class AddReply implements Action {
@@ -53,9 +29,6 @@ export class AddReplyFail implements Action {
 }
 
 export type RepliesAction =
-    | LoadReplies
-    | LoadRepliesSuccess
-    | LoadRepliesFail
     | AddReply
     | AddReplySuccess
     | AddReplyFail;

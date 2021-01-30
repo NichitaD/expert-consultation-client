@@ -4,9 +4,6 @@ import { CoreState } from '@app/core/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { CommentsService } from '../../services';
 import {
-  LoadReplies,
-  LoadRepliesSuccess,
-  LoadRepliesFail,
   AddReply,
   AddReplySuccess,
   AddReplyFail,
@@ -17,15 +14,6 @@ import { of } from 'rxjs';
 
 @Injectable()
 export class RepliesEffect {
-
-  @Effect()
-  loadReplies$ = this.actions$.pipe(
-      ofType(RepliesActionTypes.LoadReplies),
-      switchMap(
-          (action: LoadReplies) => this.commentsService.listReplies(action.nodeId, action.commentId)
-              .pipe(map((comments: any) => new LoadRepliesSuccess(action.nodeId, action.commentId, comments)))),
-      catchError((error: any) => of(new LoadRepliesFail(error.nodeId, error.commentId, error.response)))
-  );
 
   @Effect()
   saveReply$ = this.actions$.pipe(

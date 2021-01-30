@@ -10,6 +10,7 @@ export interface IComment {
   documentTitle?: string;
   voteCount?: IVoteCount;
   myVote?: IVote;
+  replies?: Array<Comment>;
 }
 
 export class Comment {
@@ -22,6 +23,7 @@ export class Comment {
   documentTitle: string;
   voteCount?: IVoteCount;
   myVote?: IVote;
+  replies?: Array<Comment>;
 
   constructor(data?: IComment) {
     if (data) {
@@ -39,6 +41,7 @@ export class Comment {
     this.documentTitle = data.documentTitle;
     this.voteCount = data.voteCount;
     this.myVote = data.myVote;
+    this.replies = data.replies;
   }
 
   toJson(): IComment {
@@ -52,6 +55,7 @@ export class Comment {
       documentTitle: this.documentTitle,
       voteCount: this.voteCount,
       myVote: this.myVote,
+      replies: this.replies
     };
   }
 }
